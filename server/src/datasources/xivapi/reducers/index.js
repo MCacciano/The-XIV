@@ -125,7 +125,6 @@ const characterDetailReducer = response => {
 
   const { List } = Achievements;
 
-  console.log('chz', Achievements);
   return {
     Achievements,
     Character,
