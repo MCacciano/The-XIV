@@ -79,11 +79,14 @@ export default () => {
           if (loading) return <p>Loading...</p>
           if (error) return <p>Error: {error.message}</p>
 
-          console.log(data)
+          const { Achievements, Character } = data.character
+          console.log(data.character)
+          const { ID, Name } = Character
           return (
             <div>
-              {/* <h1>{data}</h1> */}
-              <p>null happened if this is all you see</p>
+              <h1>
+                {Name} ({ID})
+              </h1>
             </div>
           )
         }}
