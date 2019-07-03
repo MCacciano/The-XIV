@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Query } from "react-apollo"
 import gql from "graphql-tag"
+import Navbar from "../components/navbar/Navbar"
 
 // export const GatsbyQuery = graphql`
 //   {
@@ -72,6 +73,7 @@ export const APOLLO_QUERY = gql`
 export default () => {
   return (
     <div>
+      <Navbar />
       <Query query={APOLLO_QUERY}>
         {({ data, loading, error }) => {
           if (loading) return <p>Loading...</p>

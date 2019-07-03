@@ -11,5 +11,6 @@ module.exports = {
         url: "http://localhost:5000",
       },
     },
+    "gatsby-plugin-styled-components",
   ],
 }
