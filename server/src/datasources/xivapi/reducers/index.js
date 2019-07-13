@@ -9,7 +9,7 @@ const freeCompanyReducer = (
       Crest,
       ID,
       Name,
-      Server
+      Server,
     };
   }
 
@@ -31,7 +31,7 @@ const freeCompanyReducer = (
     Seeking,
     Server,
     Slogan,
-    Tag
+    Tag,
   } = freeCompany;
   const { Greeting, Name: estateName, Plot } = Estate;
 
@@ -42,7 +42,7 @@ const freeCompanyReducer = (
     Estate: {
       Greeting,
       Name: estateName,
-      Plot
+      Plot,
     },
     Focus: [...freeCompany.Focus],
     Formed,
@@ -60,7 +60,7 @@ const freeCompanyReducer = (
     Tag,
     FreeCompanyMembers: options.getMembers
       ? [...freeCompany.FreeCompanyMembers]
-      : []
+      : [],
   };
 };
 
@@ -74,7 +74,7 @@ const characterReducer = character => {
     Name,
     Rank,
     RankIcon,
-    Server
+    Server,
   };
 };
 
@@ -117,20 +117,18 @@ const characterDetailReducer = response => {
     Achievements,
     Character,
     FreeCompany,
-    FreeCompanyMembers
+    FreeCompanyMembers,
     // # Friends
     // # Info
     // # PVPTeam
   } = response;
 
-  const { List } = Achievements;
-
-  console.log('chz', Achievements);
+  // console.log('chz', Achievements);
   return {
     Achievements,
     Character,
     FreeCompany,
-    FreeCompanyMembers
+    FreeCompanyMembers,
     // # Friends
     // # Info
     // # PVPTeam
@@ -140,5 +138,5 @@ const characterDetailReducer = response => {
 module.exports = {
   freeCompanyReducer,
   characterReducer,
-  characterDetailReducer
+  characterDetailReducer,
 };

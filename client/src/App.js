@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Search from './components/search-container/search-container.component';
+
 // import { Query } from 'react-apollo';
 // import { gql } from 'apollo-boost';
 
@@ -39,6 +41,7 @@ import React from 'react';
 const App = () => {
   return (
     <div>
+      <Search>placeholder</Search>
       <h1>App</h1>
       {/* <Query query={GET_CHARACTERS}>
         {({ data, loading, error }) => {

@@ -4,7 +4,7 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 const {
   freeCompanyReducer,
   characterReducer,
-  characterDetailReducer
+  characterDetailReducer,
 } = require('./reducers/index');
 
 class XivApi extends RESTDataSource {
@@ -20,11 +20,11 @@ class XivApi extends RESTDataSource {
     try {
       const results = await this.get(`/freecompany/search`, {
         name,
-        server
+        server,
       });
 
       const res = await this.get(`/freecompany/${results.Results[0].ID}`, {
-        data: 'FCM'
+        data: 'FCM',
       });
       return Array.isArray(res.FreeCompanyMembers)
         ? res.FreeCompanyMembers.map(member => characterReducer(member))
@@ -62,11 +62,11 @@ class XivApi extends RESTDataSource {
       ) {
         freeCompany = {
           ...res.FreeCompany,
-          FreeCompanyMembers: [...res.FreeCompanyMembers]
+          FreeCompanyMembers: [...res.FreeCompanyMembers],
         };
       } else {
         freeCompany = {
-          ...res.FreeCompany
+          ...res.FreeCompany,
         };
       }
 
@@ -101,7 +101,7 @@ class XivApi extends RESTDataSource {
     }
   }
 
-  async character({ lodestoneID, extended, data, responseOptions }) {
+  async character({ lodestoneID, extended, data }) {
     // const { lodestoneID, extended, AC, FR, FC, FCM, PVP } = characterInput.data;
     const getExtended = extended ? '1' : '0';
     const dataParam = data ? data.join(',') : '';
@@ -110,16 +110,6 @@ class XivApi extends RESTDataSource {
       const result = await this.get(
         `/character/${lodestoneID}?extended=${getExtended}&data=${dataParam}`
       );
-
-      const {
-        Achievements,
-        Character,
-        FreeCompany,
-        FreeCompanyMembers,
-        Friends,
-        Info,
-        PVPTeam
-      } = result;
 
       return characterDetailReducer(result);
     } catch (err) {

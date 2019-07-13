@@ -104,8 +104,8 @@ const characterType = gql`
     character(
       lodestoneID: String!
       extended: Boolean
-      data: [ExtendedDataOptions]
-      responseOptions: [CharacterResponseOptions]
+      data: [String]
+      responseOptions: [String]
     ): CharacterResponseType
   }
 `;
