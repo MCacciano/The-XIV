@@ -104,12 +104,11 @@ class XivApi extends RESTDataSource {
   async character({ lodestoneID, extended, data, responseOptions }) {
     // const { lodestoneID, extended, AC, FR, FC, FCM, PVP } = characterInput.data;
     const getExtended = extended ? '1' : '0';
+    const dataParam = data ? data.join(',') : '';
 
     try {
       const result = await this.get(
-        `/character/${lodestoneID}?extended=${getExtended}&data=${data.join(
-          ','
-        )}`
+        `/character/${lodestoneID}?extended=${getExtended}&data=${dataParam}`
       );
 
       const {
